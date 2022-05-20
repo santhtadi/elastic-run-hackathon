@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Simplest possible examples of HTML, CSS and JavaScript.">
+    <meta name="author" content="//samdutton.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta itemprop="name" content="simpl.info: simplest possible examples of HTML, CSS and JavaScript">
+    <meta id="theme-color" name="theme-color" content="#fff">
+
+
+    <base target="_blank">
+
+    <title>App</title>
+
+</head>
+
+<body>
+
+    <div id="container">
+
+        <div class="select">
+            <label for="videoSource">Video source: </label>
+            <select id="videoSource"></select>
+        </div>
+
+        <h3 style="color: green; font-size:30px"class="first-txt">
+            Good
+        </h3>
+
+        <canvas id="canvas" style="display: contents;"> </canvas>
+
+        <video id="videoInput" autoplay muted playsinline></video>
+
+
+        <button onclick="screen_short()" id="startbutton">Take photo</button>
+
+
+        <img id="photo" alt="The screen capture will appear in this box.">
+
+
+    </div>
+
+    <script type="text/javascript">
+        let imgElement = document.getElementById('imgShow');
+        let inputElement = document.getElementById('fileInput');
+        video = document.getElementById('videoInput');
+
+        var width = 320;
+        var height = 130;
+        canvas = document.getElementById('canvas');
+
+        function takepicture() {
+            var context = canvas.getContext('2d');
+            canvas.width = width;
+            canvas.height = height;
+            context.drawImage(video, 0, 0, width, height);
+            var data = canvas.toDataURL('image/png');
+
+            let image = cv.imread(canvas);
+            let gray = new cv.Mat();
+            let laplacian_mat = new cv.Mat();
+
+            cv.cvtColor(image, gray, cv.COLOR_RGBA2GRAY);
+            cv.Laplacian(gray, laplacian_mat, cv.CV_64F, 1, 1, 0, cv.BORDER_DEFAULT);
+
+            let myMean = new cv.Mat(1, 4, cv.CV_64F);
+            let myStddev = new cv.Mat(1, 4, cv.CV_64F);
+            cv.meanStdDev(laplacian_mat, myMean, myStddev);
+
+            let sharpness = myStddev.doubleAt(0, 0);
+            let blur_val = (sharpness * sharpness)/(320*130);
+            gray.delete();
+            laplacian_mat.delete();
+            myMean.delete();
+            myStddev.delete();
+
+            if (blur_val < 0.01) {
+
+                console.log(blur_val, 'To Much blur detection');
+
+            } 
+
+        }
+
+
+        function screen_short() {
+            var data = canvas.toDataURL('image/png');
+            photo.setAttribute('src', data);
+        }
+
+        setInterval(function () {
+            takepicture();
+
+        }, 100);
+    </script>
+
+    <script src="js/main.js"></script>
+    <script src="js/opencv.js" type="text/javascript"></script>
+
+</body>
+
+</html>
