@@ -24,7 +24,7 @@ outdict = {"approach-2": {'image': a2_img,
                           'store_size': ("large1", 0.9),
                           'rpn': list({"rpn_products1"})}}
 sys.path.append("../../pipeline")
-# import pipeline
+import pipeline
 
 
 # Create your views here.
@@ -90,8 +90,8 @@ class SendImage(APIView):
         # change RGB to BGR format for using with opencv library
         image_in_opencv_format = image_in_rgb_format[:, :, ::-1].copy()
         store_image = image_in_opencv_format.copy()
-        # analyse_image_thread = threading.Thread(target=process_request, args=())
-        # analyse_image_thread.daemon = True
-        # analyse_image_thread.start()
+        analyse_image_thread = threading.Thread(target=process_request, args=())
+        analyse_image_thread.daemon = True
+        analyse_image_thread.start()
         # returning size of image as output
         return Response({"image_size": image_in_opencv_format.shape}, status=status.HTTP_200_OK)

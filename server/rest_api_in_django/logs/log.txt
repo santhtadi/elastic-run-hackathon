@@ -98,3 +98,29 @@ started processing thread
 <super_res.SuperRes object at 0x000002A012417940>
 started processing thread
 <super_res.SuperRes object at 0x000001A182DB3F70>
+started processing thread
+<super_res.SuperRes object at 0x0000020F778A4130>
+started processing thread
+<super_res.SuperRes object at 0x0000022FFA843130>
+started processing thread
+<super_res.SuperRes object at 0x0000016B6C192100>
+started processing thread
+<super_res.SuperRes object at 0x000002C637782100>
+started processing thread
+<super_res.SuperRes object at 0x0000020770B51100>
+started processing thread
+<super_res.SuperRes object at 0x0000020770B51100>
+started processing thread
+<super_res.SuperRes object at 0x000001E0735F4130>
+started processing thread
+<super_res.SuperRes object at 0x000001E0735F4130>
+started processing thread
+<super_res.SuperRes object at 0x000001AF692A3130>
+started processing thread
+<super_res.SuperRes object at 0x0000021855A6AE20>
+started processing thread
+<super_res.SuperRes object at 0x00000172E69F8E50>
+started processing thread
+<super_res.SuperRes object at 0x000001CC010CAE20>
+started processing thread
+<super_res.SuperRes object at 0x00000235C85CBDC0>

@@ -66,7 +66,7 @@ class PipelineX:
         for prod in self.product_names:
             with open(f"./products/{prod}/cat.txt", 'r') as f:
                 self.categories.append(f.read().strip())
-        self.product_name_thresh = 0.4
+        self.product_name_thresh = 0.7
         self.de = DepthEst()
         self.embed_batch_size = 16
         self.find_products = FindProducts()
@@ -100,7 +100,7 @@ class PipelineX:
         # deleting unwanted texts
         for txt, conf in zip(txts, scores):
             for name, cat in zip(self.product_names, self.categories):
-                if self.similar(txt, name) > self.product_name_thresh or conf > 0.7:
+                if self.similar(txt, name) > self.product_name_thresh and conf > 0.7:
                     ocr_products.append((name, cat))
         ocr_products = list(set(ocr_products))
         # APPROACH-1: REGION PROPOSAL

@@ -72,6 +72,6 @@ class FindProducts:
             for saved_feat, saved_name, saved_cat in zip(self.saved_features, self.saved_names, self.category):
                 distances.append((1 - distance.cosine(saved_feat, feat), i, saved_name, saved_cat))
             distances = sorted(distances, key=lambda x: x[0], reverse=True)
-            if distances[0][0] > 0.4:
+            if distances[0][0] > 0.7:
                 selected.append(distances[0])
         return selected

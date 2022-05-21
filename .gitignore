@@ -7,6 +7,8 @@ server/rest_api_in_django/size_classification_model
 server/rest_api_in_django/super_resolution_models
 server/rest_api_in_django/yolo_support
 server/rest_api_in_django/saved_images
+server/rest_api_in_django/complete_incomplete_model
+server/rest_api_in_django/products
 #ignoring models
 pipeline/midas_net_fp32
 pipeline/paddle_support
@@ -15,3 +17,4 @@ pipeline/simfang.ttf
 pipeline/yolo_support
 pipeline/super_resolution_models
 pipeline/size_classification_model
+pipeline/complete_incomplete_model
