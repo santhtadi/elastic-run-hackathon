@@ -1,7 +1,7 @@
 # Introduction
 Hello,
 
-This Repository contains our (Team Pixel) submission for #POSSIBILITIES Hackathon by ElasticRun powered by Microsoft and hosted by HackerEarth!
+This Repository contains our (Team Pixel) submission for #POSSIBILITIES Hackathon by ElasticRun powered by Microsoft and hosted on HackerEarth!
 
 # Problem Statement
 The problem statement that we selected was to identify the store size, product categories and products in an image.
@@ -55,6 +55,8 @@ To solve this, we used a sequence matcher that maps every word with product name
 
 The output images are saved to [saved_images](./readme_images)
 
+## Step-3: Extracting Individual Products
+
 ## Approach-1: Using Selective Search
 
 ### Selective Search
@@ -69,6 +71,12 @@ So we have to eliminate many Regions proposed by SS.
 ![image with too many proposals](./readme_images/RPN.jpg)
 
 In order to do that, we used Non Max Suppression from OpenCV to remove boxes that are overlapping too much.
+
+Even then, the regions may not be relevant, especially when there are people or vehicles in the image
+
+To solve this, we used a [depth estimation model](https://docs.openvino.ai/2021.1/omz_models_public_midasnet_midasnet.html)
+
+![masked image](./readme_images/depth_estimation.jpeg)
 
 The inference code for region proposal can be found at [region_proposal.py](./pipeline/region_proposal.py)
 
@@ -88,8 +96,13 @@ So we used a small subset of the SKU110K dataset and combined it with our datase
 
 The inference code can be found at [yolo_detector.py](./pipeline/yolo_detector.py)
 
+## Step-4: Identifying Products
 
+Each region from Approach-1 & Approach-2 are cropped and passed through a feature extractor network.
 
+The distance between the saved features and cropped regions' features are computed and the closest product is selected.
+
+The algorithm can be found at [embedding_product_matcher.py](./pipeline/embedding_product_matcher.py)
 
 
 
