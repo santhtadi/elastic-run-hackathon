@@ -153,11 +153,13 @@ class PipelineX:
                         (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), thickness=2)
         cv2.imwrite(f"./saved_images/{self.name}/approach_2_{self.name}.jpg", det_out)
         print("Object Detection completed")
-        output = {"approach-2": {'image': 'base-64',
+        a1_img = cv2.imencode(".png", region_out)
+        a2_img = cv2.imencode(".png", det_out)
+        output = {"approach-2": {'image': a2_img,
                                  'ocr': ocr_products,
                                  'store_size': store_size,
                                  'yolo': list(set(det_products))},
-                  "approach-1": {'image': 'base-64',
+                  "approach-1": {'image': a1_img,
                                  'ocr': ocr_products,
                                  'store_size': store_size,
                                  'rpn': list(set(rpn_products))}}
