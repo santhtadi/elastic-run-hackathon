@@ -54,7 +54,7 @@ We combined the confidence score from model and the number of rows with formula:
 score = 0.8 * (conf of MobilenetV2) + 0.2 * (score from number of rows)
 ```
 
-## Step-2: Using OCR
+## Step-3: Using OCR
 
 We used OCR to try and detect the brand names or product names in the images
 
@@ -69,7 +69,7 @@ The inference code can be found at [ocr_detect.py](./pipeline/ocr_detect.py)
 
 The output images are saved to [saved_images](./readme_images)
 
-## Step-3: Extracting Individual Products
+## Step-4: Extracting Individual Products
 
 ## Approach-1: Using Selective Search
 
@@ -114,7 +114,7 @@ So we used a small subset of the SKU110K dataset and combined it with our datase
 
 The inference code can be found at [yolo_detector.py](./pipeline/yolo_detector.py)
 
-## Step-4: Identifying Products
+## Step-5: Identifying Products
 
 Each region from Approach-1 & Approach-2 are cropped and passed through a feature extractor network.
 
