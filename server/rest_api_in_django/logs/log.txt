@@ -96,3 +96,5 @@ started processing thread
 <super_res.SuperRes object at 0x000001FA98A88940>
 started processing thread
 <super_res.SuperRes object at 0x000002A012417940>
+started processing thread
+<super_res.SuperRes object at 0x000001A182DB3F70>
