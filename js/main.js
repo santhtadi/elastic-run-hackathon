@@ -48,7 +48,6 @@ function getStream() {
       track.stop();
     });
   }
-  console.log(videoSelect.value,'*********')  
   const videoSource = videoSelect.value;
   const constraints = {
     video: {deviceId: videoSource ? {exact: videoSource} : undefined}
