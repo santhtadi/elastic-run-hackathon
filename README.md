@@ -108,5 +108,20 @@ The distance between the saved features and cropped regions' features are comput
 
 The algorithm can be found at [embedding_product_matcher.py](./pipeline/embedding_product_matcher.py)
 
+# Results
 
+The output of Approach-1:
 
+![Approach-1 Result image](./readme_images/approach_1.jpg)
+
+The output of Approach-2:
+![Approach-2 Result image](./readme_images/approach_2.jpg)
+
+# Conclusion
+We feel that both the approaches have their own advantages and disadvantages.
+
+Approach-2 can outperform Approach-1 if correct data is provided, but it is extremely difficult to do so especially when there can be new products all the time.
+
+Approach-1 is more of a out-of-the-box solution to a very complex problem and new products can be added with ease.
+
+More in-depth analysis of each step and approach is presented in the submitted presentation.
