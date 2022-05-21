@@ -49,6 +49,7 @@ function getStream() {
     });
   }
   const videoSource = videoSelect.value;
+   alert(videoSource,'^^^^^^^^')
   const constraints = {
     video: {deviceId: videoSource ? {exact: videoSource} : undefined}
   };
