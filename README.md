@@ -122,6 +122,6 @@ We feel that both the approaches have their own advantages and disadvantages.
 
 Approach-2 can outperform Approach-1 if correct data is provided, but it is extremely difficult to do so especially when there can be new products all the time.
 
-Approach-1 is more of a out-of-the-box solution to a very complex problem and new products can be added with ease.
+Approach-1 is more of a out-of-the-box solution to a very complex problem and new products can be added with ease but products can easily be mislabelled.
 
-More in-depth analysis of each step and approach is presented in the submitted presentation.
+More in-depth analysis and what can be done to improve accuracy of each step is presented in the submitted presentation.
