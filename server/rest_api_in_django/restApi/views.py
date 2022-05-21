@@ -32,7 +32,7 @@ def index(request):
     return HttpResponse(request, "hi there")
 
 
-def dummy_output(request):
+def show_output(request):
     global outdict, thread_running
     if thread_running:
         return HttpResponse(request, {'status': "processing"})
