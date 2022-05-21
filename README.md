@@ -42,6 +42,18 @@ We used a super resolution network from [OpenVINO](https://github.com/openvinoto
 
 The inference code can be found at [super_res.py](./pipeline/super_res.py)
 
+## Step-2: Store Size Classification
+
+We trained a MobilenetV2 model to classify store images into small, medium and large.
+
+In addition to this, we used HoughLines to calculate the number of shelves. 
+
+We combined the confidence score from model and the number of rows with formula:
+
+```
+score = 0.8 * (conf of MobilenetV2) + 0.2 * (score from number of rows)
+```
+
 ## Step-2: Using OCR
 
 We used OCR to try and detect the brand names or product names in the images
@@ -81,6 +93,8 @@ To solve this, we used a [depth estimation model](https://docs.openvino.ai/2021.
 ![masked image](./readme_images/depth_estimation.jpeg)
 
 Inference code for depth estimation can be found at [estimate_depth.py](./pipeline/estimate_depth.py)
+
+After this, there might be regions with overlaps or incomplete product images, so we trained a MobilenetV2 classification model to classify the image as complete or incomplete
 
 The inference code for region proposal can be found at [region_proposal.py](./pipeline/region_proposal.py)
 
