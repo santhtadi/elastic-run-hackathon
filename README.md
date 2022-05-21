@@ -8,6 +8,27 @@ The problem statement that we selected was to identify the store size, product c
 
 # Our Solution / Submission
 
+## Repository Structure
+
+There are two folders in the solution:
+
+1. The [Server](./server/rest_api_in_django) hosts a REST API server built with Django. It is used to process the image uploaded by the android app and send the response.
+
+2. The [Pipeline](./pipeline) folder contains the pipeline script that is used by the server to process the image. It can be run individually by the following command. Make sure to comment out the relative imports from [pipeline.py](./pipeline/pipeline.py#L8)
+
+```commandline
+cd pipeline
+python3 pipeline.txt
+```
+
+The solution should contain a product database saved under the products folder:
+1. Each product's name becomes the folder name
+2. Each folder can have more than one image
+3. The product should be tight cropped
+4. It should contain a cat.txt file which has the category of the product (example: biscuits, bakery, etc.)
+
+Download the models and product images from [gdrive](#) link and unzip them in both server and pipeline
+
 ## Environment Setup
 
 All the libraries that we used are listed in [environment_spec.txt](./environment_spec.txt)
