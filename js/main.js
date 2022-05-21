@@ -36,6 +36,7 @@ function gotDevices(deviceInfos) {
     option.value = deviceInfo.deviceId;
    if (deviceInfo.kind === 'videoinput') {
       option.text = deviceInfo.label || `Camera ${videoSelect.length + 1}`;
+       alert(option);
       videoSelect.appendChild(option);
     }
   }
