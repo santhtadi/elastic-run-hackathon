@@ -51,7 +51,9 @@ Since we used ocr, we are able to read not just brand names but everything that'
 
 ![image with too many detections](./readme_images/ocr.jpg)
 
-To solve this, we used a sequence matcher that maps every word with product names in our dataset to eliminate words that are not related
+To solve this, we used a sequence matcher that maps every word with product names in our dataset to eliminate words that are not related.
+
+The inference code can be found at [ocr_detect.py](./pipeline/ocr_detect.py)
 
 The output images are saved to [saved_images](./readme_images)
 
@@ -77,6 +79,8 @@ Even then, the regions may not be relevant, especially when there are people or 
 To solve this, we used a [depth estimation model](https://docs.openvino.ai/2021.1/omz_models_public_midasnet_midasnet.html)
 
 ![masked image](./readme_images/depth_estimation.jpeg)
+
+Inference code for depth estimation can be found at [estimate_depth.py](./pipeline/estimate_depth.py)
 
 The inference code for region proposal can be found at [region_proposal.py](./pipeline/region_proposal.py)
 
