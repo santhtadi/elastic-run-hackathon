@@ -1,0 +1,98 @@
+<module 'SuperRes' from '../../super-resolution/super_res.py'>
+<module 'SuperRes' from '../../super-resolution/super_res.py'>
+<module 'SuperRes' from '../../super-resolution/super_res.py'>
+<module 'Pipeline' from '../../pipeline/pipeline.py'>
+<module 'Pipeline' from '../../pipeline/pipeline.py'>
+<module 'Pipeline' from '../../pipeline/pipeline.py'>
+<module 'Pipeline' from '../../pipeline/pipeline.py'>
+started processing thread
+<module 'Pipeline' from '../../pipeline/pipeline.py'>
+<module 'Pipeline' from '../../pipeline/pipeline.py'>
+Pipeline
+Pipeline
+Pipeline
+Pipeline
+Pipeline
+Pipeline
+Pipeline
+Pipeline
+Pipeline
+Pipeline.Pipeline
+Pipeline.Pipeline
+Pipeline.Pipeline
+<module 'Pipeline' from '../../pipeline/pipeline.py'>
+<module 'Pipeline' from '../../pipeline/pipeline.py'>
+<module 'Pipeline' from '../../pipeline/pipeline.py'>
+started processing thread
+started processing thread
+<super_res.SuperRes object at 0x0000027F7ED6F760>
+started processing thread
+<super_res.SuperRes object at 0x00000240A7D56820>
+started processing thread
+<super_res.SuperRes object at 0x000001D59D0E7820>
+started processing thread
+<super_res.SuperRes object at 0x00000226865E7820>
+started processing thread
+<super_res.SuperRes object at 0x000001D265426820>
+started processing thread
+<super_res.SuperRes object at 0x0000025D3D866820>
+started processing thread
+<super_res.SuperRes object at 0x0000011E4D777820>
+started processing thread
+<super_res.SuperRes object at 0x0000011E4D777820>
+started processing thread
+<super_res.SuperRes object at 0x000002A45D1CE220>
+started processing thread
+<super_res.SuperRes object at 0x000002378E00E820>
+started processing thread
+<super_res.SuperRes object at 0x000002539AEEE820>
+started processing thread
+<super_res.SuperRes object at 0x00000181C2DEE820>
+started processing thread
+<super_res.SuperRes object at 0x0000022FB6E78D60>
+started processing thread
+<super_res.SuperRes object at 0x0000017BA9226D60>
+started processing thread
+<super_res.SuperRes object at 0x00000202E1C25D60>
+started processing thread
+<super_res.SuperRes object at 0x0000028115706D60>
+started processing thread
+<super_res.SuperRes object at 0x0000023C375F8D60>
+started processing thread
+<super_res.SuperRes object at 0x0000024288C5E520>
+started processing thread
+<super_res.SuperRes object at 0x000001A159F0C520>
+started processing thread
+<super_res.SuperRes object at 0x000001845EF2D520>
+started processing thread
+<super_res.SuperRes object at 0x0000028F6E30F550>
+started processing thread
+<super_res.SuperRes object at 0x000002107FCAE550>
+started processing thread
+<super_res.SuperRes object at 0x000002C28C8AD550>
+started processing thread
+<super_res.SuperRes object at 0x000001C98881F520>
+started processing thread
+<super_res.SuperRes object at 0x000001E5FF3EE520>
+started processing thread
+<super_res.SuperRes object at 0x000001E5FF3EE520>
+started processing thread
+<super_res.SuperRes object at 0x000001A24A4F48E0>
+started processing thread
+<super_res.SuperRes object at 0x0000014A2073D3A0>
+started processing thread
+<super_res.SuperRes object at 0x000002E5FD6F38E0>
+started processing thread
+<super_res.SuperRes object at 0x0000015EF21383D0>
+started processing thread
+<super_res.SuperRes object at 0x000001A11E588940>
+started processing thread
+<super_res.SuperRes object at 0x000002AB45139940>
+started processing thread
+<super_res.SuperRes object at 0x00000187FFB08940>
+started processing thread
+<super_res.SuperRes object at 0x00000173588E8940>
+started processing thread
+<super_res.SuperRes object at 0x000001FA98A88940>
+started processing thread
+<super_res.SuperRes object at 0x000002A012417940>

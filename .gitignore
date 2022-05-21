@@ -1,0 +1,17 @@
+__pycache__/*
+**/__pycache__/*
+#ignoring models
+server/rest_api_in_django/midas_net_fp32
+server/rest_api_in_django/paddle_support
+server/rest_api_in_django/size_classification_model
+server/rest_api_in_django/super_resolution_models
+server/rest_api_in_django/yolo_support
+server/rest_api_in_django/saved_images
+#ignoring models
+pipeline/midas_net_fp32
+pipeline/paddle_support
+pipeline/saved_images
+pipeline/simfang.ttf
+pipeline/yolo_support
+pipeline/super_resolution_models
+pipeline/size_classification_model
