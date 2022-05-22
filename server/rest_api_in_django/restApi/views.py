@@ -1,4 +1,8 @@
+import json
 import threading
+import time
+
+from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -13,6 +17,7 @@ elogger = ELogger("./logs/log.txt")
 import sys, cv2
 
 thread_running = False
+display_output = {}
 a1_img = cv2.imencode(".png", cv2.imread("./sample_image.jpg"))
 a2_img = cv2.imencode(".png", cv2.imread("./sample_image.jpg"))
 outdict = {"approach-2": {'image': a2_img,
@@ -22,8 +27,28 @@ outdict = {"approach-2": {'image': a2_img,
            "approach-1": {'image': a1_img,
                           'ocr': ['ocr_products_a1'],
                           'store_size': ("large1", 0.9),
-                          'rpn': list({"rpn_products1"})}}
+                          'yolo': list({"rpn_products1"})}}
 sys.path.append("../../pipeline")
+
+
+def convert_format(data):
+    out = {
+        'approach-1': {
+            'image': str(data['approach-1']['image']),
+            'ocr': [{k: v} for k, v in data['approach-1']['ocr']],
+            'store_size': {data['approach-1']['store_size'][0]: data['approach-1']['store_size'][1]},
+            'rpn': [{k: v} for k, v in data['approach-1']['rpn']]
+        },
+        'approach-2': {
+            'image': str(data['approach-2']['image']),
+            'ocr': [{k: v} for k, v in data['approach-2']['ocr']],
+            'store_size': {data['approach-2']['store_size'][0]: data['approach-2']['store_size'][1]},
+            'yolo': [{k: v} for k, v in data['approach-2']['yolo']]
+        },
+    }
+    return out
+
+
 import pipeline
 
 
@@ -49,6 +74,11 @@ def process_request():
     return
 
 
+def get_output(request):
+    global display_output
+    return HttpResponse(display_output, content_type='application/json')
+
+
 analyse_image_thread = threading.Thread(target=process_request, args=())
 analyse_image_thread.daemon = True
 pipe = pipeline.PipelineX()
@@ -72,7 +102,7 @@ class SendImage(APIView):
     # post is responsible for receiving files
     # develop det put and delete according to your need
     def post(self, request):
-        global analyse_image_thread, store_image
+        global analyse_image_thread, store_image, thread_running, outdict, display_output
         # print the data in request to dashboard
         print(request.data)
         # convert the request data to a dictionary object in python
@@ -90,8 +120,14 @@ class SendImage(APIView):
         # change RGB to BGR format for using with opencv library
         image_in_opencv_format = image_in_rgb_format[:, :, ::-1].copy()
         store_image = image_in_opencv_format.copy()
+        thread_running = True
         analyse_image_thread = threading.Thread(target=process_request, args=())
         analyse_image_thread.daemon = True
         analyse_image_thread.start()
+        while thread_running:
+            print(".. processing", time.time())
+            time.sleep(1)
+        print("sending response")
+        display_output = json.dumps(convert_format(outdict))
         # returning size of image as output
-        return Response({"image_size": image_in_opencv_format.shape}, status=status.HTTP_200_OK)
+        return HttpResponse(display_output, content_type='application/json')

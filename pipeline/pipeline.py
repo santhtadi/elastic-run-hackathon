@@ -1,3 +1,4 @@
+import base64
 import importlib.util
 import os.path
 import sys
@@ -28,7 +29,8 @@ estimate_depth = importlib.util.module_from_spec(spec)
 sys.modules["estimate_depth"] = estimate_depth
 spec.loader.exec_module(estimate_depth)
 # embedding product matcher
-spec = importlib.util.spec_from_file_location("embedding_product_matcher", "../../pipeline/embedding_product_matcher.py")
+spec = importlib.util.spec_from_file_location("embedding_product_matcher",
+                                              "../../pipeline/embedding_product_matcher.py")
 embedding_product_matcher = importlib.util.module_from_spec(spec)
 sys.modules["embedding_product_matcher"] = embedding_product_matcher
 spec.loader.exec_module(embedding_product_matcher)
@@ -153,8 +155,10 @@ class PipelineX:
                         (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), thickness=2)
         cv2.imwrite(f"./saved_images/{self.name}/approach_2_{self.name}.jpg", det_out)
         print("Object Detection completed")
-        a1_img = cv2.imencode(".png", region_out)
-        a2_img = cv2.imencode(".png", det_out)
+        ret, a1_img = cv2.imencode(".png", region_out)
+        ret, a2_img = cv2.imencode(".png", det_out)
+        a1_img = base64.b64encode(a1_img)
+        a2_img = base64.b64encode(a2_img)
         output = {"approach-2": {'image': a2_img,
                                  'ocr': ocr_products,
                                  'store_size': store_size,
@@ -163,7 +167,7 @@ class PipelineX:
                                  'ocr': ocr_products,
                                  'store_size': store_size,
                                  'rpn': list(set(rpn_products))}}
-        print("FINAL OUTPUT: ", output)
+        print("FINAL OUTPUT: ", {k: {i: j for i, j in v.items() if i != "image"} for k, v in output.items()})
         return output
 
 
